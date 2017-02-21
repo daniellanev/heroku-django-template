@@ -1,0 +1,118 @@
+.billboard-header{
+	height: auto;
+	width: 100%;
+	text-align: center;
+	font-family: 'Anton', sans-serif;
+	font-size: 40px;
+	margin-top: 3%;
+}
+
+.previous.message{
+    border: 3px solid #00b7ef;
+	height: auto;
+	width: 77%;
+	margin: 2% 0 3% 10%;
+}
+
+legend{ 
+    padding-left: 4px;
+    padding-right: 2px;
+    margin: none;
+    border: none;
+    font-family: 'Poiret One', cursive, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+.previous.message .title{
+    font-family: 'Anton', sans-serif;
+    font-size: 30px;
+    color: #00b7ef;
+    margin-left: 2%;
+    margin-bottom: 2%; 
+}
+
+.previous.message .text{
+    font-family: Arial, Helvetica, sans-serif;
+	height: auto;
+	width: 96%;
+    margin-bottom: 3%;
+    margin-left: 2%; 
+}
+
+.previous.message .author{
+    font-family: 'Pinyon Script', cursive, Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    margin-left: 85%; 
+    margin-bottom: 2%;
+}
+
+.empty.billboard{
+    height: auto;
+	width: 80%;
+	text-align: center;
+	font-family: Arial;
+	font-size : 24px;
+	margin-top: 2%;
+    margin-left: 10%;
+}
+
+.add-button-div{
+    border: 1px dashed black;
+	height: 8%;
+	width: 80%;
+	text-align: center;
+	margin: 2% 0 5% 10%;
+}
+
+.message.form{
+    width: 80%;
+    margin-left: 10%; 
+    margin-top: 3%; 
+}
+
+.message.form fieldset{
+    border: 3px dashed #00b7ef;
+}
+
+.message.form .text{
+    height: 100px;
+    width: 97%;
+}
+
+.message.form .text::-webkit-input-placeholder { 
+  font-family: sans-serif;
+}
+
+.message.form .author{
+    float: right;
+    margin-right: 2%;
+}
+
+.button{
+	height: 33px;
+	width: 85px;
+	border-radius: 3px;
+	border: none;
+	margin: 2% 0.5% 3% 0;
+    padding: none;
+    background-color: #66CDAA;
+    color: white;
+    font-weight: bold;
+    font-size: 100%;
+}
+
+.button:hover{
+	cursor: pointer;
+}
+
+.button.close{
+    background-color: red;
+}
+
+.close-and-add-buttons{
+    border: 1px dashed black;
+	height: 8%;
+	width: 100%;
+	text-align: center;
+	margin: 2% 0 5% 0;
+}

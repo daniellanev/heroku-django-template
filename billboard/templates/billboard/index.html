@@ -1,0 +1,60 @@
+{% load staticfiles %}
+<html>
+    <head>
+<title>Billboard Messages</title>
+<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'billboard/css/billboard.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Pinyon+Script|Poiret+One" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+
+<div class="billboard-header">BILLBOARD</div>
+{% if message_list %}
+{% for message in message_list %}
+<fieldset class="previous message">
+	<legend>{{message.date.day}}/{{message.date.month}}/{{message.date.year}}</legend>
+    <div class="title">{{message.title}}</div>
+    <div class="text">{{message.text}}</div>
+    <div class="author">{{message.author}}</div>
+</fieldset>
+{% endfor %}
+
+<div class="add-button-div">
+	<button class="button add" id="add">+
+		<i class="fa fa-plus"></i>
+	</button>
+</div>
+
+{% else %}
+<div class="empty billboard">No messsages...<br>Click the '+' button to add a new message</div>
+<div class="add-button-div">
+	<button class="button add" id="first-add">+
+		<i class="fa fa-plus"></i>
+	</button>
+</div>
+{% endif %}
+
+<form method="POST" class="message form" action="{% url 'billboard:add_message' %}">{% csrf_token %}
+	<fieldset>
+  		<legend id="get-current-date"></legend>
+  		<input type="text" placeholder="Title" class="title" name="title"><br>
+  		<input type="text" placeholder="Your message here" class="text" name="text"><br>
+  		<input type="text" placeholder="Author" class="author" name="author">
+ 	</fieldset>
+
+	<div class="close-and-add-buttons">
+		<input type="reset" class="button close" value="x" id="close-form">
+			<i class="fa fa-window-close"></i>
+		<input type="submit" class="button add" value="+" id="send-form">
+			<i class="fa fa-plus"></i>
+	</div>
+</form>
+
+
+	<script src="./js/lib/jquery-3.0.0.min.js"></script>
+	<script type="text/javascript" src="{% static 'billboard/js/billboard.js'%}"></script>
+            
+    </body>
+ </html>
