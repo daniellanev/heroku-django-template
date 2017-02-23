@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if message_list %}
+{% for message in message_list %}
+
+
+<div id="message-board"></div>
+<fieldset class="previous message">
+	<legend class="legend">{{message.date.day}}/{{message.date.month}}/{{message.date.year}}</legend>
+    <div class="title">{{message.title}}</div>
+    <div class="text">{{message.text}}</div>
+    <div class="author">{{message.author}}</div>
+</fieldset>
+
+{% endfor %}
+
+<div class="add-button-div">
+	{% if request.user.is_authenticated %}
+	<button class="button add" id="add">+</button>
+	{% else %}
+	<span>You must<a href="{% url 'accounts:login' %}"> login </a>or<a href="{% url 'accounts:register' %}"> register </a>to add a message!</span>
+	{% endif %}
+</div>
+
+{% else %}
+<div class="empty billboard container">No messsages...<br>Click the '+' button to add a new message</div>
+<div class="add-button-div">
+	{% if request.user.is_authenticated %}
+	<button class="button add" id="first-add">+</button>
+	{% else %}
+	You must<a href="{% url 'accounts:login' %}"> login </a>or<a href="{% url 'accounts:register' %}"> register </a></li>to add a message!
+	{% endif %}
+</div>
+{% endif %}
+
+{% if request.user.is_authenticated %}
+
+<form method="POST" class="message form" action="{% url 'billboard:add_message' %}">{% csrf_token %}
+	<!--<form action="/create_post/" method="POST" class="message form" id="create-message-form">{% csrf_token %}-->
+	<!--<form action="" method="POST" class="message form" id="create-message-form">{% csrf_token %}-->
+	<fieldset class="fieldset">
+		<legend id="get-current-date"></legend>
+		<input type="text" placeholder="Title" class="title" name="title" id="title"><br>
+		<input type="text" placeholder="Your message here" class="text" name="text" id="text"<br>
+		<div class="author">{{user.username}}</div>
+	</fieldset>
+
+	<div class="close-and-add-buttons">
+		<input type="reset" class="button close" value="x" id="close-form">
+		<input type="submit" class="button add" value="+" id="send-form">
+	</div>
+</form>
+
+
+{% else %}
+
+<!--<span>
+	You must<a href="{% url 'accounts:login' %}"> login </a>or<a href="{% url 'accounts:register' %}"> register </a></li>to add a message!
+</span>-->
+
+{% endif %}
+
+{% endblock content %}

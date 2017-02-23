@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    # 'social.apps.django_app.default',
     'billboard.apps.BillboardConfig',
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -52,6 +54,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'assignment16.urls'
@@ -67,11 +70,21 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # 'social.apps.django_app.context_processors.backends',
+                # 'social.apps.django_app.context_processors.login_redirect',
             ],
             'debug': DEBUG,
         },
     },
 ]
+
+# AUTHENTICATION_BACKENDS = (
+#     'social.backends.github.GithubOAuth2',
+#     'social.backends.twitter.TwitterOAuth',
+#     'social.backends.facebook.FacebookOAuth2',
+
+#     'django.contrib.auth.backends.ModelBackend',
+# )
 
 WSGI_APPLICATION = 'assignment16.wsgi.application'
 
@@ -130,6 +143,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(PROJECT_ROOT, 'static'),
 ]
+
+LOGIN_REDIRECT_URL = 'index'
+LOGIN_URL = '/login'
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/

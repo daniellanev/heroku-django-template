@@ -1,0 +1,38 @@
+{% load staticfiles %}
+<html>
+    <head>
+<title>Billboard Messages</title>
+<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pinyon+Script|Poiret+One">
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+<link rel="stylesheet" href="{% static 'billboard/css/billboard.css' %}">
+    </head>
+    <body>
+
+<div class="top-nav-bar">
+    <span class="home"><a href="{% url 'billboard:index' %}">Home</a></span>
+    {% if not request.user.is_authenticated %}
+        <span class="register"><a href="{% url 'accounts:register' %}">Register</a></span>
+        <span> / </span>
+        <span class="login"><a href="{% url 'accounts:login' %}">Login</a></span>
+    {% else %}
+        <span class="hello">Hello  {{user.username}}</span>
+        <span class="logout"><a href="{% url 'accounts:logout' %}">Logout</a></span>
+    {% endif %}
+</div>
+
+<div class="container">
+<div class="billboard-header">BILLBOARD</div>
+
+{% block content %}
+{% endblock content %}
+
+</div>
+
+<script src="./js/lib/jquery-3.0.0.min.js"></script>
+<script type="text/javascript" src="{% static 'billboard/js/billboard.js'%}"></script>
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    </body>
+ </html>

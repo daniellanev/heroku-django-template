@@ -10,11 +10,11 @@
 .previous.message{
     border: 3px solid #00b7ef;
 	height: auto;
-	width: 77%;
-	margin: 2% 0 3% 10%;
+	width: 68%;
+	margin: 2% 0 3% 15%;
 }
 
-legend{ 
+.legend{ 
     padding-left: 4px;
     padding-right: 2px;
     margin: none;
@@ -22,12 +22,19 @@ legend{
     font-family: 'Poiret One', cursive, Arial, Helvetica, sans-serif;
     font-size: 16px;
 }
+.legend.scheduler-border {
+    padding: 0 10px 10px 10px;
+    border-bottom: none;
+    width: auto !important;
+    border: none;
+    font-size: 14px;
+}
 
 .previous.message .title{
     font-family: 'Anton', sans-serif;
     font-size: 30px;
     color: #00b7ef;
-    margin-left: 2%;
+    margin-left: 1%;
     margin-bottom: 2%; 
 }
 
@@ -36,42 +43,43 @@ legend{
 	height: auto;
 	width: 96%;
     margin-bottom: 3%;
-    margin-left: 2%; 
+    margin-left: 1%; 
 }
 
-.previous.message .author{
+.author{
     font-family: 'Pinyon Script', cursive, Arial, Helvetica, sans-serif;
     font-size: 24px;
-    margin-left: 85%; 
-    margin-bottom: 2%;
+    margin: 2% 0 2% 82%;
 }
 
 .empty.billboard{
     height: auto;
-	width: 80%;
+	width: 70%;
 	text-align: center;
 	font-family: Arial;
 	font-size : 24px;
 	margin-top: 2%;
-    margin-left: 10%;
+    margin-left: 15%;
 }
 
 .add-button-div{
     border: 1px dashed black;
 	height: 8%;
-	width: 80%;
+	width: 70%;
 	text-align: center;
-	margin: 2% 0 5% 10%;
+    font-size: 150%;
+	margin: 2% 0 5% 15%;
 }
 
 .message.form{
-    width: 80%;
-    margin-left: 10%; 
+    width: 70%;
+    margin-left: 15%; 
     margin-top: 3%; 
 }
 
-.message.form fieldset{
+.message.form .fieldset{
     border: 3px dashed #00b7ef;
+    width: auto;
 }
 
 .message.form .text{
@@ -81,11 +89,6 @@ legend{
 
 .message.form .text::-webkit-input-placeholder { 
   font-family: sans-serif;
-}
-
-.message.form .author{
-    float: right;
-    margin-right: 2%;
 }
 
 .button{
@@ -116,3 +119,52 @@ legend{
 	text-align: center;
 	margin: 2% 0 5% 0;
 }
+
+span{
+    margin-top: 2%;
+}
+
+.form-div{
+    margin: 5% 0 0 10%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+}
+
+.btn{
+    font-size: 120%;
+}
+
+.top-nav-bar{
+    width: 96%;
+    height: 6%;
+    margin: 2% 0 0 2%;
+    background-color: #00b7ef;
+    opacity: 0.6;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+}
+
+.top-nav-bar a{
+    margin: 1%;
+    margin-top: 2%;
+    text-decoration: none;
+    color: white;
+}
+
+.top-nav-bar span{
+    margin: 1%;
+}
+
+.top-nav-bar .register{
+    float: right;
+}
+
+.top-nav-bar .logout{
+    float: right;
+}
+
+.top-nav-bar .hello{
+    margin-left: 70%;
+}
+
