@@ -12,3 +12,10 @@ class Message(models.Model):
     def __str__(self):
         return self.title
 
+class Comment(models.Model):
+    text = models.CharField(max_length=100)
+    author = models.CharField(max_length=30)
+    message = models.ForeignKey(Message)
+    
+    def __str__(self):
+        return self.text
