@@ -22,22 +22,31 @@ class UserLoginForm(forms.Form):
 class UserRegisterForm(forms.ModelForm):
     
     # overiding the defualt in meta (ie adding the widget to password)
+    # username = forms.CharField(max_length=30)
     password = forms.CharField(widget=forms.PasswordInput)
-    password2 = forms.CharField(widget=forms.PasswordInput)
+    confirm_password = forms.CharField(widget=forms.PasswordInput)
    
     class Meta:
         model = User
         fields = [
             'username',
             'password',
-            'password2',
+            'confirm_password',
         ]
+    
+    # def clean_username(self):
+    #     username = self.cleaned_data.get('username')
+    #     if not re.match("^[A-Za-z]*$", username):
+    #         regex=r'^[a-zA-Z0-9]*$'
+    
+    #     return username
+
 
     # gives immediate field error compared to def clean(self): which will give an error when processing the form
-    def clean_password2(self):
+    def clean_confirm_password(self):
         password = self.cleaned_data.get('password')
-        password2 = self.cleaned_data.get('password2')
-        if password != password2:
+        confirm_password = self.cleaned_data.get('confirm_password')
+        if password != confirm_password:
             raise forms.ValidationError("Passwords must match!")
         return password
 

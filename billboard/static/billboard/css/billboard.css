@@ -1,33 +1,24 @@
 .billboard-header{
 	height: auto;
-	width: 100%;
 	text-align: center;
 	font-family: 'Anton', sans-serif;
 	font-size: 40px;
-	margin-top: 3%;
+	margin-top: 8%;
 }
 
 .previous.message{
     border: 3px solid #00b7ef;
 	height: auto;
-	width: 68%;
-	margin: 2% 0 3% 15%;
+	margin: 2% 0 3% 0;
 }
 
 .legend{ 
     padding-left: 4px;
     padding-right: 2px;
-    margin: none;
     border: none;
+    width: auto;
     font-family: 'Poiret One', cursive, Arial, Helvetica, sans-serif;
     font-size: 16px;
-}
-.legend.scheduler-border {
-    padding: 0 10px 10px 10px;
-    border-bottom: none;
-    width: auto !important;
-    border: none;
-    font-size: 14px;
 }
 
 .previous.message .title{
@@ -54,29 +45,23 @@
 
 .empty.billboard{
     height: auto;
-	width: 70%;
 	text-align: center;
 	font-family: Arial;
 	font-size : 24px;
 	margin-top: 2%;
-    margin-left: 15%;
 }
 
 .add-button-div{
     border: 1px dashed black;
-	height: 8%;
-	width: 70%;
+	height: auto;
 	text-align: center;
     font-size: 150%;
-	margin: 2% 0 5% 15%;
+    font-family: 'Anton', sans-serif;
+	margin: 2% 0 5% 0;
 }
-
-.message.form{
-    width: 70%;
-    margin-left: 15%; 
-    margin-top: 3%; 
+.add-button-div a{
+    color: #00b7ef;
 }
-
 .message.form .fieldset{
     border: 3px dashed #00b7ef;
     width: auto;
@@ -90,13 +75,30 @@
 .message.form .text::-webkit-input-placeholder { 
   font-family: sans-serif;
 }
-
+.pulse-button {
+    /*position: relative;*/
+    box-shadow: 0 0 0 0 rgba(232, 76, 61, 0.7);
+  border-radius: 50%;
+  background-color: #e84c3d;
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/173024/jonathanlarradet_copy.png);
+  background-size:cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  -webkit-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  -moz-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  -ms-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+.pulse-button:hover 
+{
+  -webkit-animation: none;-moz-animation: none;-ms-animation: none;animation: none;
+}
 .button{
 	height: 33px;
 	width: 85px;
 	border-radius: 3px;
 	border: none;
-	margin: 2% 0.5% 3% 0;
+	margin: 2% 0.5% 2% 0;
     padding: none;
     background-color: #66CDAA;
     color: white;
@@ -106,21 +108,40 @@
 
 .button:hover{
 	cursor: pointer;
+    opacity: 1;
 }
 
 .button.close{
+    float: none;
     background-color: red;
+    opacity: 1;
 }
 
 .close-and-add-buttons{
     border: 1px dashed black;
-	height: 8%;
-	width: 100%;
+    margin-top: 2%;
 	text-align: center;
-	margin: 2% 0 5% 0;
 }
 
 .btn{
     background-color: #00b7ef;
     border: none;
+}
+
+.btn:hover{
+    background-color: white;
+    color: #00b7ef;
+}
+
+.breadcrumb{
+    position: fixed;
+    width: 90%;
+    margin-left: 5%;
+    background-color: #00b7ef;
+    opacity: 0.6;
+    color: white;
+    font-size: 15px;
+}
+.breadcrumb a{
+    color: white;
 }

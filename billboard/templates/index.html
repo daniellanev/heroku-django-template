@@ -5,7 +5,7 @@
 {% for message in message_list %}
 
 
-<div id="message-board"></div>
+<div class="container" id="message-board"></div>
 <fieldset class="previous message">
 	<legend class="legend">{{message.date.day}}/{{message.date.month}}/{{message.date.year}}</legend>
     <div class="title">{{message.title}}</div>
@@ -37,10 +37,10 @@
 {% if request.user.is_authenticated %}
 
 <form method="POST" class="message form" action="{% url 'billboard:add_message' %}">{% csrf_token %}
-	<!--<form action="/create_post/" method="POST" class="message form" id="create-message-form">{% csrf_token %}-->
-	<!--<form action="" method="POST" class="message form" id="create-message-form">{% csrf_token %}-->
+<!--<form action="/create_post/" method="POST" class="message form" id="create-message-form">{% csrf_token %}-->
+<!--<form action="" method="POST" class="message form" id="create-message-form">{% csrf_token %}-->
 	<fieldset class="fieldset">
-		<legend id="get-current-date"></legend>
+		<legend class="legend" id="get-current-date"></legend>
 		<input type="text" placeholder="Title" class="title" name="title" id="title"><br>
 		<input type="text" placeholder="Your message here" class="text" name="text" id="text"<br>
 		<div class="author">{{user.username}}</div>
@@ -55,9 +55,6 @@
 
 {% else %}
 
-<span>
-	You must<a href="{% url 'accounts:login' %}"> login </a>or<a href="{% url 'accounts:register' %}"> register </a></li>to add a message!
-</span>
 
 {% endif %}
 

@@ -1,11 +1,4 @@
 
-// if (request.user.is_authenticated()){
-
-// var logged = JSON.parse(xmlhttp.responseText); // don't use eval
-// if(logged.user_logged){   
-    
-//  if(!isset($_SESSION['loggedin'])){   
-
 // {% if message_list %}
 // {% for message in message_list %}
 
@@ -47,25 +40,23 @@
         $('.add-button-div').show();
         $('.empty.billboard').show();
     });
-// }
 
-// $('#create-message-form').on('submit', function(e){
-//     e.preventDefault();
-//     $.ajax({
-//         type: 'POST',
-//         url: 'add_message',
-//         data: {
-//             title: $('#title').val(),
-//             text: $('#text').val(),
-//             author: $('#author').val(),
-        
-//         },
-//         succes: function(){
-//             alert('it worked');
-//         }
+$('#create-message-form').on('submit', function(e){
+    e.preventDefault();
+    $.ajax({
+        type: 'POST',
+        url: 'add_message',
+        data: {
+            title: $('#title').val(),
+            text: $('#text').val(),
+            author: $('#author').val(),
+        },
+        succes: function(){
+            alert('it worked');
+        }
 
-//     });
-// });
+    });
+});
 
 
 // function add_message() {

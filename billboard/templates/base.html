@@ -1,3 +1,4 @@
+
 {% load staticfiles %}
 <html>
     <head>
@@ -9,7 +10,6 @@
     </head>
     <body>
 
-<div class="container">
     <ol class="breadcrumb">
         <li class="home"><a href="{% url 'billboard:index' %}">Home</a></li>
     {% if not request.user.is_authenticated %}
@@ -19,9 +19,12 @@
         <li class="pull-right logout"><a href="{% url 'accounts:logout' %}">Logout</a></li>
         <li class="pull-right hello">Hello  {{user.username}}</li>
     {% endif %}
-</div>
-
+    </ol>
+<div class="container">
     <div class="billboard-header">BILLBOARD</div>
+
+{% block posts%}
+{% endblock posts%}
 
 {% block content %}
 {% endblock content %}

@@ -10,13 +10,14 @@ from .models import Message, Comment
 
 def index(request):
     message_list = Message.objects.order_by('date')
+    # comment_list = Comment.objects.order_by('date')
     template = loader.get_template('index.html')
     context = {
         'message_list': message_list,
+        # 'comment_list': comment_list,
     }
     return HttpResponse(template.render(context, request))
 
-# @login_required(login_url='login') 
 @login_required 
 def add_message(request):
     if request.user.is_authenticated():
@@ -25,17 +26,17 @@ def add_message(request):
         author = request.user
         new_message = Message(title=title, text=text, author=author)
         new_message.save()
-        return HttpResponseRedirect('/')
+        # return HttpResponseRedirect('/')
+        return HttpResponse(template.render(context, request))
 
-def add_comment(request, pk):
-    # message = Message.objects.get(pk=1)
-    # comments = message.comment_set.all()
-    text = request.POST.get('text')
-    # author = request.user
-    author = request.POST.get('author')
-    new_comment = Comment(text=text, author=author)
-    new_comment.save()
-    return HttpResponseRedirect('/')
+# def add_comment(request, pk):
+#     message = Message.objects.get(pk=1)
+#     comments = message.comment_set.all()
+#     text = request.POST.get('text')
+#     author = request.user
+#     new_comment = Comment(text=text, author=author)
+#     new_comment.save()
+#     return HttpResponseRedirect('/')
 
         
         
